@@ -1,20 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Tu lista de Me Gusta
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-searchbar 
+  debounce="300" 
+  animated placeholder="elige un genero"
+  (ionChange)="onChange($event)"
+  (ionClear)="onClear()"
+  [(ngModel)]="inputToSearch"
+></ion-searchbar>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+  <ion-list *ngFor="let canciones of lista;let indice=index">
+    <div *ngIf="lista[indice].mostrar==true">
+    <ion-item>
+      <img src={{lista[indice].album}} width="50" height="50">
+      <ion-label>
+        <h2>{{lista[indice].nombre}}</h2>
+        <h3>{{lista[indice].autor}}</h3>
+      </ion-label>
+    </ion-item>
   </div>
+  </ion-list>
 </ion-content>
