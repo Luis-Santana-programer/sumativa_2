@@ -14,10 +14,8 @@
   (ionClear)="onClear()"
   [(ngModel)]="inputToSearch"
 ></ion-searchbar>
-
-
-  <ion-list *ngFor="let canciones of lista;let indice=index">
-    <div *ngIf="lista[indice].mostrar==true">
+  <div *ngFor="let canciones of lista;let indice=index">
+  <ion-list  *ngIf="lista[indice].mostrar==true">
     <ion-item>
       <img src={{lista[indice].album}} width="50" height="50">
       <ion-label>
@@ -25,6 +23,7 @@
         <h3>{{lista[indice].autor}}</h3>
       </ion-label>
     </ion-item>
-  </div>
   </ion-list>
+</div>
+
 </ion-content>

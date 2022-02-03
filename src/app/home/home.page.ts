@@ -231,8 +231,14 @@ export class HomePage {
     // let inputValue=event.detail.value;
     // console.log(inputValue);
     console.log(this.inputToSearch);
+    let input;
+    let cancion;
+    let autor;
     for (let index = 0; index < this.lista.length; index++) {
-      if (this.lista[index].nombre.includes(this.inputToSearch) || this.lista[index].autor.includes(this.inputToSearch)) {
+      input=this.inputToSearch.toLowerCase();
+      cancion=this.lista[index].nombre.toLowerCase();
+      autor=this.lista[index].autor.toLowerCase();
+      if (cancion.includes(input) || autor.includes(input)) {
         this.lista[index].mostrar=true;
       }else{
         this.lista[index].mostrar=false;
